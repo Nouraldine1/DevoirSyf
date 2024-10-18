@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des Dettes</h1>
+
+    <form method="GET" action="{{ path('dette_index') }}">
+        <label for="status">Filtrer par Statut:</label>
+        <select name="status" id="status">
+            <option value="">Tous</option>
+            <option value="payee" {% if statusFilter == 'payee' %}selected{% endif %}>Payée</option>
+            <option value="impayee" {% if statusFilter == 'impayee' %}selected{% endif %}>Impayée</option>
+        </select>
+        <button type="submit">Filtrer</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Montant</th>
+                <th>Client</th>
+                <th>Article</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dette in dettes %}
+                <tr>
+                    <td>{{ dette.montant }}</td>
+                    <td>{{ dette.client.nom }}</td>
+                    <td>{{ dette.article.libelle }}</td>
+                    <td>{{ dette.status }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Aucune dette trouvée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('dette_new') }}">Créer une Dette</a>
+{% endblock %}

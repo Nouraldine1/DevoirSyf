@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Enum;
+
+class DetteStatus
+{
+    const PAYE = 'PAYE';
+    const IMPAYE = 'IMPAYE';
+
+    public static function getStatuses(): array
+    {
+        return [
+            self::PAYE => 'Paye',
+            self::IMPAYE => 'Impaye',
+        ];
+    }
+}
