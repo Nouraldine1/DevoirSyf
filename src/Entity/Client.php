@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,29 +6,22 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
  */
+#[ORM\Entity(repositoryClass: 'App\Repository\ClientRepository')]
 class Client
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private ?int $id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $nom;
+    #[ORM\Column(type: 'string', length: 100)]
+    private string $nom;
 
-    /**
-     * @ORM\Column(type="string", length=15)
-     */
-    private $telephone;
+    #[ORM\Column(type: 'string', length: 15)]
+    private string $telephone;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $hasAccount;
+    #[ORM\Column(type: 'boolean')]
+    private bool $hasAccount;
 
     // Getters and Setters
 

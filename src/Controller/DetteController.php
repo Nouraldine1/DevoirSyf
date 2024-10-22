@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\Dette;
@@ -12,9 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DetteController extends AbstractController
 {
-    /**
-     * @Route("/dette", name="dette_index")
-     */
+    #[Route('/dette', name: 'dette_index')]
     public function index(Request $request, DetteRepository $detteRepository): Response
     {
         $statusFilter = $request->query->get('status');
@@ -26,9 +23,7 @@ class DetteController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/dette/new", name="dette_new")
-     */
+    #[Route('/dette/new', name: 'dette_new')]
     public function new(Request $request): Response
     {
         $dette = new Dette();

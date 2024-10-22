@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,29 +6,22 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
+#[ORM\Entity(repositoryClass: 'App\Repository\ArticleRepository')]
 class Article
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private ?int $id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $libelle;
+    #[ORM\Column(type: 'string', length: 100)]
+    private string $libelle;
 
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $prixAppro;
+    #[ORM\Column(type: 'float')]
+    private float $prixAppro;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $qteStock;
+    #[ORM\Column(type: 'integer')]
+    private int $qteStock;
 
     // Getters and Setters
 

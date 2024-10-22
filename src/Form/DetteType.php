@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Form;
 
 use App\Entity\Dette;
@@ -23,12 +22,12 @@ class DetteType extends AbstractType
             ])
             ->add('client', EntityType::class, [
                 'class' => Client::class,
-                'choixlabel' => 'nom',
+                'choice_label' => 'nom',  // Correction ici
                 'label' => 'Client',
             ])
             ->add('article', EntityType::class, [
                 'class' => Article::class,
-                'choixlabel' => 'libelle',
+                'choice_label' => 'libelle',  // Correction ici
                 'label' => 'Article',
             ])
             ->add('status', ChoiceType::class, [
